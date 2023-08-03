@@ -16,13 +16,13 @@ Capturas de Tela:
 
 # Como Usar:
 
-Certifique-se de ter o Python 3.8 ou superior instalado.
-Clone este repositório: git clone https://github.com/seu-usuario/seu-repositorio.git
-Acesse o diretório do projeto: cd seu-repositorio
-Instale as dependências: pip install -r requirements.txt
-Configure as variáveis de ambiente ou edite o arquivo de configuração.
-Inicie o servidor: python app.py
-Acesse http://localhost:5000 no seu navegador.
+- Certifique-se de ter o Python 3.8 ou superior instalado.
+- Clone este repositório: git clone https://github.com/seu-usuario/seu-repositorio.git
+- Acesse o diretório do projeto: cd seu-repositorio
+- Instale as dependências: pip install -r requirements.txt
+- Configure as variáveis de ambiente ou edite o arquivo de configuração.
+- Inicie o servidor: python app.py
+- Acesse http://localhost:5000 no seu navegador.
 
 # Contribuição:
 Contribuições são bem-vindas! Se você encontrou algum problema ou deseja adicionar melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
