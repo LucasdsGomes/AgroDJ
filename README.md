@@ -1,6 +1,6 @@
 # Sistema de Gestão de Funcionários - AGRODJ
 
-O Sistema de Gestão de Funcionários e Setores Empresariais é um projeto desenvolvido em Python com o framework Flask, destinado a facilitar o gerenciamento de informações de funcionários, setores e folgas em uma empresa. Ele permite o registro e acompanhamento eficiente de dados relevantes para a administração interna.
+O Sistema de Gestão de Funcionários e Setores Empresariais é um projeto desenvolvido em Python com o framework Django, destinado a facilitar o gerenciamento de informações de funcionários, setores e folgas em uma empresa. Ele permite o registro e acompanhamento eficiente de dados relevantes para a administração interna.
 
 # Funcionalidades Principais:
 
@@ -21,7 +21,7 @@ Capturas de Tela:
 - Acesse o diretório do projeto: cd seu-repositorio
 - Instale as dependências: pip install -r requirements.txt
 - Configure as variáveis de ambiente ou edite o arquivo de configuração.
-- Inicie o servidor: python app.py
+- Inicie o servidor: python manage.py runserver
 - Acesse http://localhost:5000 no seu navegador.
 
 # Contribuição:
