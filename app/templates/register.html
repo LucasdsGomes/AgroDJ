@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Registre-se AgroDJ {% endblock %}
+
+{% block content %}
+<div class="container mt-5 mb-5 bg-info-subtle p-3" style="border-radius: 20px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="{% url 'register' %}" method="POST" class="mt-4">
+                {% csrf_token %}
+                <div class="form-control p-5 custom-field" style="border-radius: 20px;">
+                    <h1 class="text-center font-weight-bold">Registre-se</h1>
+                    <table class="table table-striped">
+                        {{ form.as_table }}
+                    </table>
+                    <button type="submit" class="btn btn-success btn-block mt-4">Registrar</button>
+                    <img class="img-fluid mt-2 float-right" style="max-width: 80px;" src="https://www.svgrepo.com/show/353657/django-icon.svg" alt="Django Icon">
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+{% endblock %}

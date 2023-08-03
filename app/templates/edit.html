@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit User - AgroDJ{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form action="{% url 'update' funcionario.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-control p-5" style="border-radius: 20px;">
+            <h1><p style="font-weight: bold;">Alterar Dados do ID: {{ funcionario.id }} - {{ funcionario.nome }}</p></h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="form-control" value="{{ funcionario.nome }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="data_nascimento">Data de Nascimento:</label>
+                    <input type="date" id="data_nascimento" name="data_nascimento" class="form-control" value="{{ funcionario.data_nascimento|date:'Y-m-d' }}" required>
+                </div>        
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="cpf">CPF:</label>
+                    <input type="text" id="cpf" name="cpf" class="form-control" value="{{ funcionario.cpf }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="endereco">Endereço:</label>
+                    <input type="text" id="endereco" name="endereco" class="form-control" value="{{ funcionario.endereco }}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="logradouro">Logradouro:</label>
+                    <input type="text" id="logradouro" name="logradouro" class="form-control" value="{{ funcionario.logradouro }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="complemento">Complemento:</label>
+                    <input type="text" id="complemento" name="complemento" class="form-control" value="{{ funcionario.complemento }}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="func">Função Exercida:</label>
+                    <input type="text" id="funcao_exercida" name="funcao_exercida" class="form-control" value="{{ funcionario.funcao_exercida }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="salario">Salário:</label>
+                    <input type="text" id="salario" name="salario" class="form-control" value="{{ funcionario.salario|floatformat:"0" }}" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="area">Área de interesse:</label>
+                    <select class="form-control form-select" id="area" name="area_interesse" aria-label="Default select example" required>
+                        <option value="" disabled selected>Área de Interesse</option>
+                        {% for choice in AREA_CHOICES %}
+                            <option value="{{ choice.0 }}" {% if funcionario.area_interesse == choice.0 %}selected{% endif %}>{{ choice.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="password">Senha:</label>
+                    <input type="password" id="password" name="password" class="form-control" value="{{ funcionario.password }}" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="confirmpassword">Confirme sua Senha:</label>
+                    <input type="password" id="confirmpassword" name="confirmpassword" class="form-control" value="{{ funcionario.confirmpassword }}" required>
+                </div>
+            </div>
+          <button type="submit" class="btn btn-success mt-3">Salvar</button>
+      </div>
+  </form>
+</div>
+
+<script>
+    var cpfInput = document.getElementById("cpf");
+    cpfInput.addEventListener("input", function() {
+        var formattedCpf = this.value.replace(/\D/g, "");
+        this.value = formattedCpf;
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,32 @@
+input {
+    border-radius: 10px;
+}
+body {
+    background: linear-gradient(to right, #ecdbdb, #e4b4e8);
+}
+
+h1 {
+    text-align: center;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav-item:hover {
+    border-radius: 10px;
+    transition: 1s;
+    background-color: rgb(242, 158, 158);
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: rgb(57, 187, 231);
+}
+
+.btn-outline-success:hover {
+    background-color: rgb(95, 155, 95);
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}

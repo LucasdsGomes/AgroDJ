@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %} Gerenciamento de Folga - AgroDJ {% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card bg-info-subtle shadow-lg rounded">
+                <div class="card-body p-5">
+                    <h1 class="text-center font-weight-bold mb-4" style="font-weight: bold;">Sistema de Folgas</h1>
+                    <h5 class="text-center mb-5"> Escreva um motivo ou selecione uma opção que se encaixa no seu estado. </h5>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <table class="table table-striped">
+                            {{ form.as_table }}
+                            </table>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Registrar</button>
+                    </form>
+                </div>
+                <div class="card-footer bg-transparent border-0 text-center">
+                    <img class="img-fluid" style="max-width: 80px;" src="https://www.svgrepo.com/show/353657/django-icon.svg" alt="Django Icon">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

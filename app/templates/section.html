@@ -1,0 +1,130 @@
+{% extends 'base.html' %}
+{% block title %} Setores - AgroDJ {% endblock %}
+{% block content %}
+<style>
+    .card:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+
+    footer {
+    position: fixed;    
+    bottom: 0;
+    width: 100%;
+    padding-right: 400px;
+    }
+</style>
+<div class="container p-5 bg-info-subtle" style="border-radius: 20px;">
+    <h5 class="text-center" style="font-weight: bold; font-size: 30px;">Nossos Setores de Qualidade</h5>
+    <div class="container mt-5 d-flex justify-content-center">
+        <div class="card mx-3 shadow" style="width: 18rem;">
+            <a href="{% url 'cont' %}">
+                <img src="https://cdn.pixabay.com/photo/2016/09/19/18/30/calculator-1680905_1280.jpg" class="card-img-top img-fluid" alt="Foto de calculadora">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;">Contabilidade</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card mx-3 shadow" style="width: 18rem;">
+            <a href="{% url 'plant' %}">
+                <img src="https://cdn.pixabay.com/photo/2023/05/30/08/06/planting-8027884_1280.jpg" class="card-img-top img-fluid" alt="Foto de plantio">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;">Plantio</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card mx-3 shadow" style="width: 18rem;">
+            <a href="{% url 'colhen' %}">
+                <img src="https://imagens-cdn.canalrural.com.br/wp-content/uploads/colheitasojagilson_059-scaled.jpg" class="card-img-top img-fluid" alt="Foto de colheita">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;">Colheita</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card mx-3 shadow" style="width: 18rem;">
+            <a href="{% url 'insum' %}">
+                <img src="https://cdn.pixabay.com/photo/2015/11/05/08/33/earth-1023859_1280.jpg" class="card-img-top img-fluid" alt="Foto de insumos">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;">Insumos</h5>
+                </div>
+            </a>
+        </div>
+        <div class="card mx-3 shadow" style="width: 18rem;">
+            <a href="{% url 'dist' %}">
+                <img src="https://cdn.pixabay.com/photo/2022/02/19/12/05/delivery-7022432_1280.png" class="card-img-top img-fluid" alt="Foto de distribuição">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black;">Distribuição</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="accordion mt-5" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseContabilidade" aria-expanded="true" aria-controls="collapseContabilidade">
+              Contabilidade
+            </button>
+          </h2>
+          <div id="collapseContabilidade" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              A equipe de contabilidade é responsável por gerenciar as finanças da empresa, garantindo que todos os registros contábeis estejam precisos e em conformidade com as normas. Além disso, eles fornecem relatórios financeiros detalhados que ajudam na tomada de decisões estratégicas. Nossos especialistas em contabilidade estão sempre comprometidos em manter a transparência e a integridade nas operações financeiras.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePlantio" aria-expanded="false" aria-controls="collapsePlantio">
+              Plantio
+            </button>
+          </h2>
+          <div id="collapsePlantio" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Nossa equipe de plantio se dedica ao cultivo de produtos agrícolas de alta qualidade. Utilizamos práticas agrícolas sustentáveis e tecnologias avançadas para garantir uma colheita saudável e abundante. Além disso, estamos comprometidos com a preservação do meio ambiente e a promoção de uma agricultura responsável.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseColheita" aria-expanded="false" aria-controls="collapseColheita">
+              Colheita
+            </button>
+          </h2>
+          <div id="collapseColheita" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Nossa equipe de colheita é dedicada a colher os produtos agrícolas no momento certo, garantindo a máxima qualidade e frescor dos alimentos. Utilizamos técnicas cuidadosas para a colheita, o que nos permite preservar o valor nutricional dos alimentos e fornecer aos nossos clientes produtos de alto padrão.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInsumos" aria-expanded="false" aria-controls="collapseInsumos">
+              Insumos
+            </button>
+          </h2>
+          <div id="collapseInsumos" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              A equipe de insumos é responsável por garantir que os materiais e recursos necessários para o cultivo agrícola estejam disponíveis em quantidade e qualidade adequadas. Eles trabalham em estreita colaboração com a equipe de plantio para fornecer os insumos necessários, garantindo uma produção agrícola eficiente e bem-sucedida.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDistribuicao" aria-expanded="false" aria-controls="collapseDistribuicao">
+              Distribuição
+            </button>
+          </h2>
+          <div id="collapseDistribuicao" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Nossa equipe de distribuição é responsável por garantir que os produtos agrícolas cheguem aos nossos clientes de forma rápida e segura. Mantemos uma cadeia de distribuição eficiente, trabalhando com parceiros logísticos confiáveis. Nossa prioridade é garantir que os produtos agrícolas cheguem frescos e em perfeitas condições às mãos dos consumidores.
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+
+{% endblock %}

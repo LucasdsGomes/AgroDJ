@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %} Gerencia de Funcionários - AgroDJ {% endblock %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="container bg-light rounded p-4">
+    <h1 class="mb-4" style="font-weight: bold;">Gerenciamento de Funcionários</h1>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead class="table-primary">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Data de Nascimento</th>
+                    <th>CPF</th>
+                    <th>Endereço</th>
+                    <th>Logradouro</th>
+                    <th>Complemento</th>
+                    <th>Função Exercida</th>
+                    <th>Salário</th>
+                    <th>Dias de Folga</th>
+                    <th>Motivo</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for funcionario in funcionarios %}
+                <tr>
+                    <td>{{ funcionario.id }}</td>
+                    <td>{{ funcionario.nome }}</td>
+                    <td>{{ funcionario.data_nascimento|date:"d/m/Y" }}</td>
+                    <td>{{ funcionario.cpf }}</td>
+                    <td>{{ funcionario.endereco }}</td>
+                    <td>{{ funcionario.logradouro }}</td>
+                    <td>{{ funcionario.complemento }}</td>
+                    <td>{{ funcionario.funcao_exercida }}</td>
+                    <td>{{ funcionario.salario }}</td>
+                    <td>{{ funcionario.status_folga }}</td>
+                    <td>
+                        {% for folga in folga_queryset %}
+                            {% if folga.cpf == funcionario.cpf %}
+                                {{ folga.get_selectmotivo_display }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        <a href="{% url 'editar' funcionario.id %}" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="{% url 'delete' funcionario.id %}" class="btn btn-sm btn-danger">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% else %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-warning-subtle">
+                    <h3 class="text-center">Bem-vindo à AgroDj</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Somos uma empresa agropecuária dedicada à produção e distribuição de alimentos
+                        saudáveis e sustentáveis. Nossos valores estão fundamentados na responsabilidade
+                        ambiental, bem-estar animal e qualidade dos produtos que levamos até sua mesa.
+                    </p>
+                    <p class="card-text">
+                        Explore nosso site para conhecer mais sobre nossos serviços e iniciativas.
+                        Seja parte dessa jornada rumo a um futuro mais verde e próspero.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h1 class="text-center" style="font-weight: bold;">Registre-se para ver nosso gerenciamento de funcionários!</h1>
+        <div class="accordion mt-4" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Contabilidade
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        A Contabilidade é um dos pilares essenciais para o sucesso de nossa empresa. Ela engloba o controle financeiro, o registro de receitas e despesas, além de garantir a conformidade com as obrigações fiscais e tributárias. Com uma contabilidade sólida, podemos tomar decisões estratégicas que impulsionam nosso crescimento e sustentabilidade no mercado.
+    
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Insumos
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Os insumos são os elementos fundamentais para a produção agrícola de alta qualidade. Nossa empresa se dedica a fornecer os melhores insumos aos agricultores, como sementes, fertilizantes, defensivos agrícolas e demais insumos essenciais para o cultivo. Garantimos a procedência e qualidade dos produtos, colaborando para o aumento da produtividade e rentabilidade das atividades agrícolas.
+    
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Distribuição
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        A distribuição é um dos pontos cruciais para que nossos produtos cheguem aos mercados e aos consumidores finais de forma ágil e segura. Investimos em logística eficiente e redes de distribuição bem estruturadas para atender a demanda dos clientes e parceiros em diversas regiões. Com uma distribuição eficiente, conseguimos levar nossos produtos até os pontos de venda com qualidade e rapidez.
+    
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Plantio
+                    </button>
+                </h2>
+                <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        O plantio é o momento crucial para dar início ao ciclo produtivo. Nossos agricultores são especialistas em planejar e executar o plantio de forma estratégica, garantindo a escolha das melhores variedades de culturas, o preparo adequado do solo e a aplicação correta de insumos. Com práticas sustentáveis e tecnologias modernas, buscamos maximizar a produção e a qualidade das colheitas.
+    
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Colheita
+                    </button>
+                </h2>
+                <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        A colheita é o momento de colher os frutos do trabalho árduo realizado ao longo do ciclo produtivo. Nossa equipe de colheita é treinada para realizar a colheita de forma cuidadosa e eficiente, garantindo a qualidade dos produtos desde a colheita até a chegada aos consumidores. Com processos de colheita bem planejados, buscamos obter o máximo rendimento e a satisfação dos nossos clientes.
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3 mb-3">
+        <h1 class="text-center mb-3" style="font-weight: bold;">Nossos negócios</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-3">
+                <img src="https://www.adecoagro.com/images/home/home_pr/home-azucar.svg" class="img-fluid" alt="Azúcar">
+
+            </div>
+            <div class="col-md-3">
+                <img src="https://www.adecoagro.com/images/home/home_pr/home-leche.svg" class="img-fluid" alt="Leche">
+                
+            </div>
+            <div class="col-md-3">
+                <img src="https://www.adecoagro.com/images/home/home_pr/home-arroz.svg" class="img-fluid" alt="Arroz">
+                
+            </div>
+            <div class="col-md-3">
+                <img src="https://www.adecoagro.com/images/home/home_pr/home-granos.svg" class="img-fluid" alt="Granos">
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endif %}
+
+{% endblock %}
